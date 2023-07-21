@@ -3,4 +3,11 @@
   height: 50px;
   border-radius: 50px;
   background-color: red;
+  overflow: hidden;
+
+  img {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+  }
 }

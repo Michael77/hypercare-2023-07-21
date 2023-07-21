@@ -4,6 +4,7 @@ import { BasicChatFields } from "../../../../models/models.ts";
 import { RecursivePartial } from "../../../../type-helpers.ts";
 import UserAvatar from "../../../../components/user-avatar/user-avatar.component.tsx";
 import { formatDate } from "../../../../time-util.ts";
+import groupImgUrl from "../../../../assets/group.jpeg";
 
 export default function ChatTile(props: {
   chat: RecursivePartial<BasicChatFields>;
@@ -18,9 +19,18 @@ export default function ChatTile(props: {
     return chat.lastMessage?.message ?? "";
   }
 
+  function getAvatar(): ReactElement {
+    return chat.type === "group" ? (
+      <UserAvatar url={groupImgUrl}></UserAvatar>
+    ) : (
+      // TODO other avatar types
+      <UserAvatar></UserAvatar>
+    );
+  }
+
   return (
     <div className={classes.chatTile}>
-      <UserAvatar></UserAvatar>
+      {getAvatar()}
 
       <div className={classes.textCont}>
         <div className={classes.topTextRow}>

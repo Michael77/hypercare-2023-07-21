@@ -8,7 +8,11 @@ export async function getChats(): Promise<ChatFields> {
 }
 
 const mockUsers = {
-  derek: { id: "asdfalksdhfklh", firstname: "Derek" },
+  derek: {
+    id: "asdfalksdhfklh",
+    firstname: "Derek",
+    profilePic: { url: "/assets/dog.jpeg" },
+  },
   ashton: { id: "as908dfhjas", firstname: "Ashton" },
   emily: { id: "as908dfhjas", firstname: "Emily" },
 };
