@@ -8,7 +8,9 @@ export async function getChats(): Promise<ChatFields> {
 }
 
 const mockUsers = {
-  derek: { id: "foo", firstname: "Derek" },
+  derek: { id: "asdfalksdhfklh", firstname: "Derek" },
+  ashton: { id: "as908dfhjas", firstname: "Ashton" },
+  emily: { id: "as908dfhjas", firstname: "Emily" },
 };
 
 const mockChatFields: ChatFields = [
@@ -30,6 +32,6 @@ const mockChatFields: ChatFields = [
       message: "It's me again",
       sender: mockUsers.derek,
     },
-    members: [mockUsers.derek],
+    members: [mockUsers.derek, mockUsers.emily],
   },
 ];
