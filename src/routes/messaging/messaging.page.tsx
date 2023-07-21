@@ -1,10 +1,13 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useContext, useEffect } from "react";
 import classes from "./messaging.module.scss";
+import { ChatStoreContext } from "../../stores/chat.store.tsx";
 
 export default function MessagingPage(): ReactElement {
+  const chatStoreContext = useContext(ChatStoreContext);
+
   useEffect(() => {
-    // Todo init loading chat
-  });
+    chatStoreContext?.loadChats();
+  }, []);
 
   return (
     <div className={classes.messagingPage}>
