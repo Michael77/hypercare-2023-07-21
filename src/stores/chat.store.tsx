@@ -32,6 +32,8 @@ export default function ChatStoreProvider(props: {
     setLoadingChatFields(true);
     setLoadingChatFieldsError(null);
 
+    return;
+
     try {
       // todo load chats from api
       const chatFields = await getChats();

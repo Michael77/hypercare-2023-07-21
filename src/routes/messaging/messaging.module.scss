@@ -41,3 +41,9 @@ $grid-columns: 500px 1fr;
   .chatDisplay {
   }
 }
+
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  margin: 32px auto;
+}
