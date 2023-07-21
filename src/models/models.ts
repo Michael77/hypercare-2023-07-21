@@ -1,10 +1,10 @@
-interface OrganizationChatsVariables {
+export interface OrganizationChatsVariables {
   continuationId?: string;
   limit?: number;
   isPriority?: boolean;
 }
 
-interface BasicChatFields {
+export interface BasicChatFields {
   chatId: string;
   title?: string;
   type: "self" | "single" | "group";
@@ -17,7 +17,7 @@ interface BasicChatFields {
   unreadPriorityMessages: number;
 }
 
-interface ChatMemberFields {
+export interface ChatMemberFields {
   id: string;
   firstname: string;
   lastname: string;
@@ -32,7 +32,7 @@ interface ChatMemberFields {
   workStatusProxy: PublicUserStatusFields;
 }
 
-interface MessageFields {
+export interface MessageFields {
   id: string;
   priority: boolean;
   message: string;
@@ -45,13 +45,13 @@ interface MessageFields {
   data?: ConsultMessageData;
 }
 
-interface ReadReceiptFields {
+export interface ReadReceiptFields {
   messageId: string;
   user: PublicUserFields;
   timestamp: string;
 }
 
-interface PublicUserFields {
+export interface PublicUserFields {
   id: string;
   firstname: string;
   lastname: string;
@@ -63,7 +63,7 @@ interface PublicUserFields {
   workStatusProxy: PublicUserStatusFields;
 }
 
-interface PublicUserStatusFields {
+export interface PublicUserStatusFields {
   id: string;
   firstname: string;
   lastname: string;
@@ -72,14 +72,14 @@ interface PublicUserStatusFields {
   profilePic: { url: string };
 }
 
-interface ConsultMessageData {
+export interface ConsultMessageData {
   mrn: string;
   firstname: string;
   lastname: string;
   details: string;
 }
 
-interface ChatsForOrganizationResult {
+export interface ChatsForOrganizationResult {
   chatsForOrganization: {
     chats: BasicChatFields[];
   };

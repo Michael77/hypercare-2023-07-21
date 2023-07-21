@@ -1,7 +1,11 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import classes from "./messaging.module.scss";
 
 export default function MessagingPage(): ReactElement {
+  useEffect(() => {
+    // Todo init loading chat
+  });
+
   return (
     <div className={classes.messagingPage}>
       <header className={classes.pageHeader}>
