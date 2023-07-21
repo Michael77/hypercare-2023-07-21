@@ -1,10 +1,11 @@
 @import "../../constants.scss";
 
 $grid-columns: 500px 1fr;
+$header-height: 80px;
 
 .messagingPage {
   display: grid;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows: $header-height 1fr;
   height: 100svh;
 }
 
@@ -36,6 +37,8 @@ $grid-columns: 500px 1fr;
 
   .chatList {
     border-right: 2px solid $grey;
+    overflow: auto;
+    max-height: calc(100svh - $header-height);
   }
 
   .chatDisplay {
