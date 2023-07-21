@@ -7,3 +7,5 @@ export async function getChats(): Promise<RecursivePartial<BasicChatFields>[]> {
 
   return [];
 }
+
+const mockChatFields: RecursivePartial<BasicChatFields>[] = [];
