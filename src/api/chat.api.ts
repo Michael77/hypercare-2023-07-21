@@ -22,4 +22,14 @@ const mockChatFields: ChatFields = [
     },
     members: [mockUsers.derek],
   },
+  {
+    type: "group",
+    title: "Group chat",
+    lastMessage: {
+      dateCreated: "2023-06-21T19:08:03+00:00",
+      message: "It's me again",
+      sender: mockUsers.derek,
+    },
+    members: [mockUsers.derek],
+  },
 ];
