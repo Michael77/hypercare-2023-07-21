@@ -2,7 +2,7 @@ import { BasicChatFields } from "../models/models.ts";
 import { createContext, ReactElement, ReactNode, useState } from "react";
 import { getChats } from "../api/chat.api.ts";
 import { RecursivePartial } from "../type-helpers.ts";
-import { sleep } from "../util.ts";
+import { sleep } from "../time-util.ts";
 
 interface ChatStoreProps {
   chatFields: RecursivePartial<BasicChatFields>[];

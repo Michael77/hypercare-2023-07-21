@@ -2,6 +2,7 @@ import { ReactElement, useContext, useEffect } from "react";
 import classes from "./messaging.module.scss";
 import { ChatStoreContext } from "../../stores/chat.store.tsx";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component.tsx";
+import ChatTile from "./components/chat-tile/chat-tile.component.tsx";
 
 export default function MessagingPage(): ReactElement {
   const chatStoreContext = useContext(ChatStoreContext);
@@ -28,7 +29,9 @@ export default function MessagingPage(): ReactElement {
               <LoadingSpinner></LoadingSpinner>
             </div>
           ) : (
-            <div></div>
+            chatStoreContext?.chatFields.map((chat) => (
+              <ChatTile chat={chat}></ChatTile>
+            ))
           )}
         </div>
 
