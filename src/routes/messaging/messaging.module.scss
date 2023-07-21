@@ -1,9 +1,33 @@
+@import "../../constants.scss";
+
+$grid-columns: 500px 1fr;
+
 .messagingPage {
-	display: grid;
-	border: 1px solid red;
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: $grid-columns;
+  height: 100svh;
 }
 
-.customH1 {
-	font-size: 4rem;
-	color: blue;
+.pageHeader {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: $grid-columns;
+  border-bottom: 2px solid $grey;
+
+  .headingCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    &:first-of-type {
+      justify-content: flex-start;
+      border-right: 2px solid $grey;
+    }
+  }
 }
