@@ -6,6 +6,7 @@ export function getUnixTime(d: Date | string | null | undefined): number {
   return new Date(d ?? "1970-01-01T00:00:00+00:00").getTime();
 }
 
+// TODO add tests if this project is going to prod
 export function formatDate(dateString?: string): string {
   const now = new Date();
   const inputDate = new Date(dateString ?? "");
