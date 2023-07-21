@@ -1,17 +1,30 @@
+@import "../../../../constants";
+
 .chatTile {
   display: grid;
-  grid-template-columns: 50px 2fr 1fr;
+  grid-template-columns: 50px 1fr;
   padding: 32px;
 
-  .textCol {
-    padding: 8px;
+  .textCont {
+    padding: 4px 0 0 8px;
 
-    h2 {
-      font-size: 1.1rem;
+    .topTextRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+
+      h2 {
+        font-size: 1.1rem;
+      }
     }
-  }
 
-  .dateCol {
-    padding: 8px;
+    .bottomTextRow {
+      margin-top: 2px;
+
+      p {
+        color: $dark-grey;
+      }
+    }
   }
 }

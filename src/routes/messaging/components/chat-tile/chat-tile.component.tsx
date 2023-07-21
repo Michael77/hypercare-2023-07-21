@@ -14,17 +14,23 @@ export default function ChatTile(props: {
     return chat.title ?? "";
   }
 
+  function getChatBody(): string {
+    return chat.lastMessage?.message ?? "";
+  }
+
   return (
     <div className={classes.chatTile}>
       <UserAvatar></UserAvatar>
 
-      <div className={classes.textCol}>
-        <h2>{getChatTitle()}</h2>
-        <p></p>
-      </div>
+      <div className={classes.textCont}>
+        <div className={classes.topTextRow}>
+          <h2>{getChatTitle()}</h2>
+          <time>{formatDate(chat.lastMessage?.dateCreated)}</time>
+        </div>
 
-      <div className={classes.dateCol}>
-        <time>{formatDate(chat.lastMessage?.dateCreated)}</time>
+        <div className={classes.bottomTextRow}>
+          <p>{getChatBody()}</p>
+        </div>
       </div>
     </div>
   );
