@@ -1,5 +1,3 @@
-// We could break these into separate files for improved maintainability
-
 interface OrganizationChatsVariables {
   continuationId?: string;
   limit?: number;
