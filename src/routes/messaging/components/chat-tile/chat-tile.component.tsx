@@ -3,6 +3,7 @@ import classes from "./chat-tile.module.scss";
 import { BasicChatFields } from "../../../../models/models.ts";
 import { RecursivePartial } from "../../../../type-helpers.ts";
 import UserAvatar from "../../../../components/user-avatar/user-avatar.component.tsx";
+import { formatDate } from "../../../../time-util.ts";
 
 export default function ChatTile(props: {
   chat: RecursivePartial<BasicChatFields>;
@@ -23,7 +24,7 @@ export default function ChatTile(props: {
       </div>
 
       <div className={classes.dateCol}>
-        <time>{chat.lastMessage?.dateCreated}</time>
+        <time>{formatDate(chat.lastMessage?.dateCreated)}</time>
       </div>
     </div>
   );
