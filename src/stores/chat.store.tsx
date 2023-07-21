@@ -1,11 +1,10 @@
-import { BasicChatFields } from "../models/models.ts";
 import { createContext, ReactElement, ReactNode, useState } from "react";
 import { getChats } from "../api/chat.api.ts";
-import { RecursivePartial } from "../type-helpers.ts";
 import { sleep } from "../time-util.ts";
+import { ChatFields } from "../models/models.ts";
 
 interface ChatStoreProps {
-  chatFields: RecursivePartial<BasicChatFields>[];
+  chatFields: ChatFields;
   loadingChatFields: boolean;
   loadingChatFieldsError: unknown | null;
   loadChats: () => Promise<void>;
@@ -16,9 +15,7 @@ export const ChatStoreContext = createContext<ChatStoreProps | null>(null);
 export default function ChatStoreProvider(props: {
   children: ReactNode;
 }): ReactElement {
-  const [chatFields, setChatFields] = useState<
-    RecursivePartial<BasicChatFields>[]
-  >([]);
+  const [chatFields, setChatFields] = useState<ChatFields>([]);
   const [loadingChatFields, setLoadingChatFields] = useState<boolean>(false);
   const [loadingChatFieldsError, setLoadingChatFieldsError] = useState<
     unknown | null
@@ -34,7 +31,7 @@ export default function ChatStoreProvider(props: {
     setLoadingChatFieldsError(null);
 
     try {
-      await sleep(2000);
+      await sleep(500);
       const chatFields = await getChats();
       setChatFields(chatFields);
     } catch (e) {

@@ -1,8 +1,12 @@
+import { RecursivePartial } from "../type-helpers.ts";
+
 export interface OrganizationChatsVariables {
   continuationId?: string;
   limit?: number;
   isPriority?: boolean;
 }
+
+export type ChatFields = RecursivePartial<BasicChatFields>[];
 
 export interface BasicChatFields {
   chatId: string;

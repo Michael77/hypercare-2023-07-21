@@ -1,7 +1,6 @@
-import { BasicChatFields } from "../models/models.ts";
-import { RecursivePartial } from "../type-helpers.ts";
+import { ChatFields } from "../models/models.ts";
 
-export async function getChats(): Promise<RecursivePartial<BasicChatFields>[]> {
+export async function getChats(): Promise<ChatFields> {
   // call GQL API and return chats
   // hard-mocked for now (easy mocks with RecursivePartial)
 
@@ -12,7 +11,7 @@ const mockUsers = {
   derek: { id: "foo", firstname: "Derek" },
 };
 
-const mockChatFields: RecursivePartial<BasicChatFields>[] = [
+const mockChatFields: ChatFields = [
   {
     type: "self",
     title: "My very own chat",

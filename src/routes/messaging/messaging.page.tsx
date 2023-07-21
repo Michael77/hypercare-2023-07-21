@@ -3,6 +3,8 @@ import classes from "./messaging.module.scss";
 import { ChatStoreContext } from "../../stores/chat.store.tsx";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component.tsx";
 import ChatTile from "./components/chat-tile/chat-tile.component.tsx";
+import { ChatFields } from "../../models/models.ts";
+import { getUnixTime } from "../../time-util.ts";
 
 export default function MessagingPage(): ReactElement {
   const chatStoreContext = useContext(ChatStoreContext);
@@ -10,6 +12,16 @@ export default function MessagingPage(): ReactElement {
   useEffect(() => {
     chatStoreContext?.loadChats();
   }, []);
+
+  function getSortedChats(chats: ChatFields | undefined): ChatFields {
+    return (
+      chats?.sort(
+        (a, b) =>
+          getUnixTime(b.lastMessage?.dateCreated) -
+          getUnixTime(a.lastMessage?.dateCreated),
+      ) ?? []
+    );
+  }
 
   return (
     <div className={classes.messagingPage}>
@@ -29,7 +41,7 @@ export default function MessagingPage(): ReactElement {
               <LoadingSpinner></LoadingSpinner>
             </div>
           ) : (
-            chatStoreContext?.chatFields.map((chat) => (
+            getSortedChats(chatStoreContext?.chatFields).map((chat) => (
               <ChatTile chat={chat}></ChatTile>
             ))
           )}
