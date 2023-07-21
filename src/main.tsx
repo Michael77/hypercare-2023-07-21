@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "the-new-css-reset/css/reset.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MessagingPage from "./routes/messaging/messaging.page.tsx";
+import "./global.scss";
 
 const router = createBrowserRouter([
   {
