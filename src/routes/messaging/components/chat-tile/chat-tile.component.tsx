@@ -17,13 +17,13 @@ export default function ChatTile(props: {
     <div className={classes.chatTile}>
       <UserAvatar></UserAvatar>
 
-      <div>
+      <div className={classes.textCol}>
         <h2>{getChatTitle()}</h2>
         <p></p>
       </div>
 
-      <div>
-        <time>{chat.dateCreated}</time>
+      <div className={classes.dateCol}>
+        <time>{chat.lastMessage?.dateCreated}</time>
       </div>
     </div>
   );
