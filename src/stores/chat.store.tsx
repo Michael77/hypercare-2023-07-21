@@ -1,5 +1,5 @@
 import { createContext, ReactElement, ReactNode, useState } from "react";
-import { getChats } from "../api/chat.api.ts";
+import { getChats, setAPIArchiveStatus } from "../api/chat.api.ts";
 import { sleep } from "../time-util.ts";
 import { ArchiveStatus, ChatFields } from "../models/models.ts";
 
@@ -8,6 +8,7 @@ interface ChatStoreProps {
   loadingChatFields: boolean;
   loadingChatFieldsError: unknown | null;
   loadChats: () => Promise<void>;
+  setArchiveStatus: (s: string, a: ArchiveStatus) => Promise<void>;
 }
 
 export const ChatStoreContext = createContext<ChatStoreProps | null>(null);
@@ -20,6 +21,10 @@ export default function ChatStoreProvider(props: {
   const [loadingChatFieldsError, setLoadingChatFieldsError] = useState<
     unknown | null
   >(null);
+
+  const [archiveStatusError, setArchiveStatusError] = useState<unknown | null>(
+    null,
+  );
 
   async function loadChats(): Promise<void> {
     if (loadingChatFields) {
@@ -41,7 +46,14 @@ export default function ChatStoreProvider(props: {
     }
   }
 
-  function setArchiveStatus(chatId: string, status: ArchiveStatus) {
+  async function setArchiveStatus(chatId: string, status: ArchiveStatus) {
+    try {
+      await setAPIArchiveStatus(chatId, status);
+    } catch (e) {
+      setArchiveStatusError(e);
+      return;
+    }
+
     let chats = [...chatFields];
     const chat = chats.find((chat) => chat.chatId === chat);
     if (chat) {
@@ -58,6 +70,7 @@ export default function ChatStoreProvider(props: {
         loadingChatFields,
         loadingChatFieldsError,
         loadChats,
+        setArchiveStatus,
       }}
     >
       {props.children}

@@ -43,7 +43,10 @@ export default function MessagingPage(): ReactElement {
             </div>
           ) : (
             getSortedChats(chatStoreContext?.chatFields).map((chat) => (
-              <ChatTile chat={chat}></ChatTile>
+              <ChatTile
+                chat={chat}
+                setArchiveStatus={chatStoreContext?.setArchiveStatus}
+              ></ChatTile>
             ))
           )}
         </div>

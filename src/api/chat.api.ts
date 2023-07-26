@@ -1,10 +1,17 @@
-import { ChatFields } from "../models/models.ts";
+import { ArchiveStatus, ChatFields } from "../models/models.ts";
 
 export async function getChats(): Promise<ChatFields> {
   // call GQL API and return chats
   // hard-mocked for now (easy mocks with RecursivePartial)
 
   return mockChatFields;
+}
+
+export async function setAPIArchiveStatus(
+  chatId: string,
+  status: ArchiveStatus,
+): Promise<void> {
+  return;
 }
 
 const mockUsers = {

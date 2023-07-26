@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import classes from "./chat-tile.module.scss";
-import { BasicChatFields } from "../../../../models/models.ts";
+import { ArchiveStatus, BasicChatFields } from "../../../../models/models.ts";
 import { RecursivePartial } from "../../../../type-helpers.ts";
 import UserAvatar from "../../../../components/user-avatar/user-avatar.component.tsx";
 import { formatDate } from "../../../../time-util.ts";
@@ -10,8 +10,11 @@ import { ARCHIVE_STRING, UNARCHIVE_STRING } from "./string.ts";
 
 export default function ChatTile(props: {
   chat: RecursivePartial<BasicChatFields>;
+  setArchiveStatus:
+    | ((s: string, a: ArchiveStatus) => Promise<void>)
+    | undefined;
 }): ReactElement {
-  const { chat } = props;
+  const { chat, setArchiveStatus } = props;
 
   function getChatTitle(): string {
     return chat.title ?? "";
@@ -30,7 +33,14 @@ export default function ChatTile(props: {
     );
   }
 
-  function onDownArrowClick() {}
+  function onDownArrowClick() {
+    if (setArchiveStatus) {
+      setArchiveStatus(
+        chat.chatId ?? "",
+        chat.archiveStatus === "archived" ? "unarchived" : "archived",
+      );
+    }
+  }
 
   function getTooltipId(): string {
     return `${chat.chatId}-archive-tooltip`;
