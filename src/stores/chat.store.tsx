@@ -1,7 +1,7 @@
 import { createContext, ReactElement, ReactNode, useState } from "react";
 import { getChats } from "../api/chat.api.ts";
 import { sleep } from "../time-util.ts";
-import { ChatFields } from "../models/models.ts";
+import { ArchiveStatus, ChatFields } from "../models/models.ts";
 
 interface ChatStoreProps {
   chatFields: ChatFields;
@@ -39,6 +39,16 @@ export default function ChatStoreProvider(props: {
     } finally {
       setLoadingChatFields(false);
     }
+  }
+
+  function setArchiveStatus(chatId: string, status: ArchiveStatus) {
+    let chats = [...chatFields];
+    const chat = chats.find((chat) => chat.chatId === chat);
+    if (chat) {
+      chat.archiveStatus = status;
+    }
+
+    setChatFields(chats);
   }
 
   return (

@@ -8,6 +8,8 @@ export interface OrganizationChatsVariables {
 
 export type ChatFields = RecursivePartial<BasicChatFields>[];
 
+export type ArchiveStatus = "archived" | "unarchived";
+
 export interface BasicChatFields {
   chatId: string;
   title?: string;
@@ -19,7 +21,7 @@ export interface BasicChatFields {
   dateCreated: string;
   isArchived: boolean;
   unreadPriorityMessages: number;
-  archiveStatus: "archived" | "unarchived";
+  archiveStatus: ArchiveStatus;
 }
 
 export interface ChatMemberFields {
