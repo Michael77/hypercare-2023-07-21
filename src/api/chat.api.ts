@@ -26,6 +26,7 @@ const mockUsers = {
 
 const mockChatFields: ChatFields = [
   {
+    archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
     lastMessage: {
@@ -36,6 +37,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
     lastMessage: {
@@ -46,6 +48,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
     lastMessage: {
@@ -56,6 +59,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
     lastMessage: {
@@ -66,6 +70,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
     lastMessage: {
@@ -76,6 +81,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
     lastMessage: {
@@ -86,6 +92,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
     lastMessage: {
@@ -96,6 +103,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
     lastMessage: {
@@ -106,6 +114,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
     lastMessage: {
@@ -116,6 +125,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
     lastMessage: {
@@ -126,6 +136,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
     lastMessage: {
@@ -136,6 +147,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
     lastMessage: {

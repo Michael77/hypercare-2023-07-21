@@ -42,7 +42,9 @@ export default function MessagingPage(): ReactElement {
               <LoadingSpinner></LoadingSpinner>
             </div>
           ) : (
-            getSortedChats(chatStoreContext?.chatFields).map((chat) => (
+            getSortedChats(
+              chatStoreContext?.getChatsByArchiveStatus("unarchived"),
+            ).map((chat) => (
               <ChatTile
                 chat={chat}
                 setArchiveStatus={chatStoreContext?.setArchiveStatus}

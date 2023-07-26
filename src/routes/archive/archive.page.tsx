@@ -42,8 +42,13 @@ export default function ArchivePage(): ReactElement {
               <LoadingSpinner></LoadingSpinner>
             </div>
           ) : (
-            getSortedChats(chatStoreContext?.chatFields).map((chat) => (
-              <ChatTile chat={chat}></ChatTile>
+            getSortedChats(
+              chatStoreContext?.getChatsByArchiveStatus("archived"),
+            ).map((chat) => (
+              <ChatTile
+                chat={chat}
+                setArchiveStatus={chatStoreContext?.setArchiveStatus}
+              ></ChatTile>
             ))
           )}
         </div>
