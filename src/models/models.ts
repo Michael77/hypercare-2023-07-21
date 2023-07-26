@@ -19,6 +19,7 @@ export interface BasicChatFields {
   dateCreated: string;
   isArchived: boolean;
   unreadPriorityMessages: number;
+  archiveStatus: "archived" | "unarchived";
 }
 
 export interface ChatMemberFields {

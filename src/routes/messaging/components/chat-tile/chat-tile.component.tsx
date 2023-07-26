@@ -6,6 +6,7 @@ import UserAvatar from "../../../../components/user-avatar/user-avatar.component
 import { formatDate } from "../../../../time-util.ts";
 import groupImgUrl from "../../../../assets/group.jpeg";
 import { Tooltip } from "react-tooltip";
+import { ARCHIVE_STRING, UNARCHIVE_STRING } from "./string.ts";
 
 export default function ChatTile(props: {
   chat: RecursivePartial<BasicChatFields>;
@@ -35,6 +36,10 @@ export default function ChatTile(props: {
     return `${chat.chatId}-archive-tooltip`;
   }
 
+  function getTooltipText(): string {
+    return chat.isArchived ? UNARCHIVE_STRING : ARCHIVE_STRING;
+  }
+
   return (
     <div className={classes.chatTile}>
       {getAvatar()}
@@ -49,7 +54,7 @@ export default function ChatTile(props: {
           <p>{getChatBody()}</p>
           <button
             data-tooltip-id={getTooltipId()}
-            data-tooltip-content="Hello world!"
+            data-tooltip-content={getTooltipText()}
             onClick={() => onDownArrowClick()}
           >
             ⇓
