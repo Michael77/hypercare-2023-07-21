@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MessagingPage from "./routes/messaging/messaging.page.tsx";
 import "./global.scss";
 import ChatStoreProvider from "./stores/chat.store.tsx";
+import ArchivePage from "./routes/archive/archive.page.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <ChatStoreProvider>
         <Routes>
           <Route path="/" Component={MessagingPage}></Route>
+          <Route path="/archive" Component={ArchivePage}></Route>
         </Routes>
       </ChatStoreProvider>
     </BrowserRouter>
