@@ -28,6 +28,7 @@ export default function MessagingPage(): ReactElement {
       <header className={classes.pageHeader}>
         <div className={classes.headingCont}>
           <h1>Messaging</h1>
+          <a href="/archive">ARCHIVE</a>
         </div>
         <div className={classes.headingCont}>
           <h1>IPC Team</h1>

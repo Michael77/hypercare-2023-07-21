@@ -25,7 +25,7 @@ $header-height: 80px;
     }
 
     &:first-of-type {
-      justify-content: flex-start;
+      justify-content: space-between;
       border-right: 2px solid $grey;
     }
   }
