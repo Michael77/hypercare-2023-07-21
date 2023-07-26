@@ -60,7 +60,7 @@ export default function ChatStoreProvider(props: {
     }
 
     let chats = [...chatFields];
-    const chat = chats.find((chat) => chat.chatId === chat);
+    const chat = chats.find((chat) => chat.chatId === chatId);
     if (chat) {
       chat.archiveStatus = status;
     }

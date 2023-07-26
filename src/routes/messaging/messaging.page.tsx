@@ -46,6 +46,7 @@ export default function MessagingPage(): ReactElement {
               chatStoreContext?.getChatsByArchiveStatus("unarchived"),
             ).map((chat) => (
               <ChatTile
+                key={chat.chatId}
                 chat={chat}
                 setArchiveStatus={chatStoreContext?.setArchiveStatus}
               ></ChatTile>

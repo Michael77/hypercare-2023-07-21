@@ -26,6 +26,7 @@ const mockUsers = {
 
 const mockChatFields: ChatFields = [
   {
+    chatId: "as0dcjsd-0j",
     archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
@@ -37,6 +38,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    chatId: "ca90sdjfp",
     archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
@@ -48,6 +50,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    chatId: "acposdjcp",
     archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
@@ -59,6 +62,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    chatId: "c09asjdf0p9o",
     archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
@@ -70,6 +74,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    chatId: "apsdjcva0s9dcvj",
     archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
@@ -81,6 +86,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    chatId: "asdcj09",
     archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
@@ -92,6 +98,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    chatId: "acs0d9jfasdf",
     archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
@@ -103,6 +110,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    chatId: "asd90vcj9a0sd",
     archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
@@ -114,6 +122,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    chatId: "vpoasdjfgvoa",
     archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
@@ -125,6 +134,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    chatId: "asdfzxdgxzcg",
     archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",
@@ -136,6 +146,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek, mockUsers.emily],
   },
   {
+    chatId: "asdfasfwqefwq",
     archiveStatus: "unarchived",
     type: "self",
     title: "My very own chat",
@@ -147,6 +158,7 @@ const mockChatFields: ChatFields = [
     members: [mockUsers.derek],
   },
   {
+    chatId: "asdfwqefef",
     archiveStatus: "unarchived",
     type: "group",
     title: "Group chat",

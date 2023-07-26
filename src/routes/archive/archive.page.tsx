@@ -46,6 +46,7 @@ export default function ArchivePage(): ReactElement {
               chatStoreContext?.getChatsByArchiveStatus("archived"),
             ).map((chat) => (
               <ChatTile
+                key={chat.chatId}
                 chat={chat}
                 setArchiveStatus={chatStoreContext?.setArchiveStatus}
               ></ChatTile>
