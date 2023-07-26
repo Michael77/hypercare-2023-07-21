@@ -5,6 +5,7 @@ import { RecursivePartial } from "../../../../type-helpers.ts";
 import UserAvatar from "../../../../components/user-avatar/user-avatar.component.tsx";
 import { formatDate } from "../../../../time-util.ts";
 import groupImgUrl from "../../../../assets/group.jpeg";
+import { Tooltip } from "react-tooltip";
 
 export default function ChatTile(props: {
   chat: RecursivePartial<BasicChatFields>;
@@ -30,6 +31,10 @@ export default function ChatTile(props: {
 
   function onDownArrowClick() {}
 
+  function getTooltipId(): string {
+    return `${chat.chatId}-archive-tooltip`;
+  }
+
   return (
     <div className={classes.chatTile}>
       {getAvatar()}
@@ -42,7 +47,14 @@ export default function ChatTile(props: {
 
         <div className={classes.bottomTextRow}>
           <p>{getChatBody()}</p>
-          <button onClick={() => onDownArrowClick()}>⇓</button>
+          <button
+            data-tooltip-id={getTooltipId()}
+            data-tooltip-content="Hello world!"
+            onClick={() => onDownArrowClick()}
+          >
+            ⇓
+          </button>
+          <Tooltip id={getTooltipId()} place={"bottom"}></Tooltip>
         </div>
       </div>
     </div>
