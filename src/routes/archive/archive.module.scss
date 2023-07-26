@@ -1,0 +1,52 @@
+@import "../../constants.scss";
+
+$grid-columns: 500px 1fr;
+$header-height: 80px;
+
+.archivePage {
+  display: grid;
+  grid-template-rows: $header-height 1fr;
+  height: 100svh;
+}
+
+.pageHeader {
+  display: grid;
+  grid-template-columns: $grid-columns;
+  border-bottom: 2px solid $grey;
+
+  .headingCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    &:first-of-type {
+      justify-content: space-between;
+      border-right: 2px solid $grey;
+    }
+  }
+}
+
+.pageMain {
+  display: grid;
+  grid-template-columns: $grid-columns;
+
+  .chatList {
+    border-right: 2px solid $grey;
+    overflow: auto;
+    max-height: calc(100svh - $header-height);
+  }
+
+  .chatDisplay {
+  }
+}
+
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  margin: 32px auto;
+}
