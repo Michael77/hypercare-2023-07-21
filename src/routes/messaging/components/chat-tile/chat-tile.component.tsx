@@ -28,6 +28,8 @@ export default function ChatTile(props: {
     );
   }
 
+  function onDownArrowClick() {}
+
   return (
     <div className={classes.chatTile}>
       {getAvatar()}
@@ -40,6 +42,7 @@ export default function ChatTile(props: {
 
         <div className={classes.bottomTextRow}>
           <p>{getChatBody()}</p>
+          <button onClick={() => onDownArrowClick()}>⇓</button>
         </div>
       </div>
     </div>
