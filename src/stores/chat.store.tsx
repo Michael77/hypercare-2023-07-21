@@ -9,6 +9,7 @@ interface ChatStoreProps {
   loadingChatFieldsError: unknown | null;
   loadChats: () => Promise<void>;
   setArchiveStatus: (s: string, a: ArchiveStatus) => Promise<void>;
+  getChatsByArchiveStatus: (a: ArchiveStatus) => ChatFields;
 }
 
 export const ChatStoreContext = createContext<ChatStoreProps | null>(null);
@@ -25,6 +26,10 @@ export default function ChatStoreProvider(props: {
   const [archiveStatusError, setArchiveStatusError] = useState<unknown | null>(
     null,
   );
+
+  function getChatsByArchiveStatus(archiveStatus: ArchiveStatus): ChatFields {
+    return chatFields.filter((chat) => chat.archiveStatus === archiveStatus);
+  }
 
   async function loadChats(): Promise<void> {
     if (loadingChatFields) {
@@ -71,6 +76,7 @@ export default function ChatStoreProvider(props: {
         loadingChatFieldsError,
         loadChats,
         setArchiveStatus,
+        getChatsByArchiveStatus,
       }}
     >
       {props.children}

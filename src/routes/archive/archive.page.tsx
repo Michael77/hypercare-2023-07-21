@@ -4,6 +4,7 @@ import { ChatStoreContext } from "../../stores/chat.store.tsx";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner.component.tsx";
 import ChatTile from "../messaging/components/chat-tile/chat-tile.component.tsx";
 import { ChatFields } from "../../models/models.ts";
+import { getUnixTime } from "../../time-util.ts";
 
 export default function ArchivePage(): ReactElement {
   const chatStoreContext = useContext(ChatStoreContext);
@@ -12,8 +13,14 @@ export default function ArchivePage(): ReactElement {
     chatStoreContext?.loadChats();
   }, []);
 
-  function getSortedArchivedChats(chats: ChatFields | undefined): ChatFields {
-    return [];
+  function getSortedChats(chats: ChatFields | undefined): ChatFields {
+    return (
+      chats?.sort(
+        (a, b) =>
+          getUnixTime(b.lastMessage?.dateCreated) -
+          getUnixTime(a.lastMessage?.dateCreated),
+      ) ?? []
+    );
   }
 
   return (
@@ -35,7 +42,7 @@ export default function ArchivePage(): ReactElement {
               <LoadingSpinner></LoadingSpinner>
             </div>
           ) : (
-            getSortedArchivedChats(chatStoreContext?.chatFields).map((chat) => (
+            getSortedChats(chatStoreContext?.chatFields).map((chat) => (
               <ChatTile chat={chat}></ChatTile>
             ))
           )}
